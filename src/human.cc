@@ -9,7 +9,6 @@ using namespace std;
 
 Human::Human(GameBoard* gb, int colour): Player(gb, colour) {} 
 
-
 //Human::makeMove()
 //Will read input from user to execute "move" and "resign" commands.
 //Checks: (1) Calls Method to Check if player owns starting peice
@@ -62,9 +61,9 @@ void Human::makeMove() {
     //cout << "got here" << endl;
     if(makeTheMove && ((colour == 0 && endc.getY() == 7 && gb->getPiece(stc)->getPiece() == 'P') ||
 	(colour == 1 && endc.getY() == 0 && gb->getPiece(stc)->getPiece() == 'p'))) {
-		#ifdef DEBUG
-		//cout << "Pawn Promotion occured!" << endl;
-		#endif
+#ifdef DEBUG
+		cout << "Pawn Promotion occured!" << endl;
+#endif
 		bool whichState = false;
 		//canPP = false;
 		//char checkState = gb->getPiece(stc)->getPiece()

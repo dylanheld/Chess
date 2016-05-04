@@ -8,20 +8,24 @@ using namespace std;
 
 Coord::Coord(int x, int y) : x(x), y(y) {}
 
-int Coord::getX() {
+int Coord::getX() 
+{
   return x;
 }
 
-int Coord::getY() {
+int Coord::getY() 
+{
   return y;
 }
 
-Coord Coord::addCoord(int x, int y) {
+Coord Coord::addCoord(int x, int y) 
+{
   return Coord(this->x + x, this->y + y);
 }
 
 bool Coord::inBounds() {
-  if ((getX() >= 0) && (getX() <= 7) && (getY() >= 0) && (getY() <= 7)) return true;
+  if ((getX() >= 0) && (getX() <= 7) && (getY() >= 0) && (getY() <= 7)) 
+	  return true;
   return false;
 }
 
@@ -30,10 +34,8 @@ istream &Coord::operator>>(istream &in) {
    in >> c;
    stringstream s(c);
    char l;
-   s >> l;
-   s >> y;
+   s >> l >> y;
    y--; 
    x = l - 'a';
-   
    return in;
 }
