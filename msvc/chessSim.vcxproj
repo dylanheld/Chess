@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{CD0BBEDA-6DFD-494E-BFB9-015592BD88CD}</ProjectGuid>
+    <RootNamespace>chessSim</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>C:\Users\giryit\Desktop\Chess\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\inc\ai.h" />
+    <ClInclude Include="..\inc\ai1.h" />
+    <ClInclude Include="..\inc\ai2.h" />
+    <ClInclude Include="..\inc\ai3.h" />
+    <ClInclude Include="..\inc\ai4.h" />
+    <ClInclude Include="..\inc\bishop.h" />
+    <ClInclude Include="..\inc\coord.h" />
+    <ClInclude Include="..\inc\gameboard.h" />
+    <ClInclude Include="..\inc\helperF.h" />
+    <ClInclude Include="..\inc\history.h" />
+    <ClInclude Include="..\inc\human.h" />
+    <ClInclude Include="..\inc\king.h" />
+    <ClInclude Include="..\inc\knight.h" />
+    <ClInclude Include="..\inc\pawn.h" />
+    <ClInclude Include="..\inc\pieces.h" />
+    <ClInclude Include="..\inc\player.h" />
+    <ClInclude Include="..\inc\queen.h" />
+    <ClInclude Include="..\inc\rook.h" />
+    <ClInclude Include="..\inc\textdisplay.h" />
+    <ClInclude Include="..\inc\view.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\ai.cc" />
+    <ClCompile Include="..\src\ai1.cc" />
+    <ClCompile Include="..\src\ai2.cc" />
+    <ClCompile Include="..\src\ai3.cc" />
+    <ClCompile Include="..\src\ai4.cc" />
+    <ClCompile Include="..\src\bishop.cc" />
+    <ClCompile Include="..\src\coord.cc" />
+    <ClCompile Include="..\src\gameboard.cc" />
+    <ClCompile Include="..\src\helperF.cc" />
+    <ClCompile Include="..\src\history.cc" />
+    <ClCompile Include="..\src\human.cc" />
+    <ClCompile Include="..\src\king.cc" />
+    <ClCompile Include="..\src\knight.cc" />
+    <ClCompile Include="..\src\main.cc" />
+    <ClCompile Include="..\src\pawn.cc" />
+    <ClCompile Include="..\src\pieces.cc" />
+    <ClCompile Include="..\src\player.cc" />
+    <ClCompile Include="..\src\queen.cc" />
+    <ClCompile Include="..\src\rook.cc" />
+    <ClCompile Include="..\src\textdisplay.cc" />
+    <ClCompile Include="..\src\view.cc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
