@@ -34,14 +34,13 @@ int main(int argc, char *argv[]) {
 		G->setReadingFile(true); //Supresses View from Printing while pieces are read to board
  		if(firstLoop == true) 
 		{
-			if (argc == 2) {
-					defaultBoard.open(argv[1]);
-				} else {
-					defaultBoard.open("DBoard.txt");
-				}
-				startingPlayer = G->readFile(defaultBoard);
-				currPlayer = startingPlayer;
-				defaultBoard.close();
+			if (argc == 2)
+				defaultBoard.open(argv[1]);
+			else 
+				defaultBoard.open("DBoard.txt");
+			startingPlayer = G->readFile(defaultBoard);
+			currPlayer = startingPlayer;
+			defaultBoard.close();
 			firstLoop = false;
 		} 
 		else
@@ -64,8 +63,10 @@ int main(int argc, char *argv[]) {
 			stringstream ss(userIN);
 			ss >> token;
 	
-			if(token == "setup") {
-				if(firstLoop && argc == 2) {
+			if(token == "setup") 
+			{
+				if(firstLoop && argc == 2) 
+				{
 					defaultBoard.open("DBoard.txt");
 					G->readFile(defaultBoard);
 					defaultBoard.close();
@@ -73,7 +74,9 @@ int main(int argc, char *argv[]) {
 				GameBoard *GAlt = G;
 				int *curr = &currPlayer;
 				setupINIT(GAlt, curr);
-			} else if(token == "game") {
+			} 
+			else if(token == "game") 
+			{
 				string playerW;
 				string playerB;
 				ss >> playerW >> playerB;
@@ -125,60 +128,60 @@ int main(int argc, char *argv[]) {
 
 		//PLAYING THE GAME 
 //		G.setPlayingGame(true);
-		while (!G->gameOver(C)) {
-	        	if(currPlayer == 0) {
-				//REQUIRED: The below game message
-				if(W->wouldPutInCheck(Coord(0,0),Coord(0,0))) { cout << "White is in check." << endl; }
+		while (!G->gameOver(C)) 
+		{
+			if(currPlayer == 0) 
+			{
+				if(W->wouldPutInCheck(Coord(0,0),Coord(0,0)))  
+					cout << "White is in check." << endl; 
 				W->makeMove();
-
-                                #ifdef DEBUG
-                                cout << "White: Please take your turn." << endl;
-                                #endif
-			} else {
-				//REQUIRED: The below game message
-                                if(B->wouldPutInCheck(Coord(0,0),Coord(0,0))) { cout << "Black is in check." << endl; }
+#ifdef DEBUG
+				cout << "White: Please take your turn." << endl;
+#endif
+			} 
+			else 
+			{
+				if(B->wouldPutInCheck(Coord(0,0),Coord(0,0)))  
+					cout << "Black is in check." << endl; 
 				B->makeMove();
-
-                                #ifdef DEBUG
-                                cout << "Black: Please take your turn." << endl;
-                                #endif
+#ifdef DEBUG
+				cout << "Black: Please take your turn." << endl;
+#endif
 			}
-     	 	 	currPlayer = 1 - currPlayer;
-			if(currPlayer == 0) { C = W; }
-			else { C = B; }
-       	        }
+			currPlayer = 1 - currPlayer;
+			if(currPlayer == 0)  
+				C = W; 
+			else  
+				C = B; 
+		}
 		//G.setPlayingGame(false);
-
-
-                //ANALYZING AND OUTPUTTING RESULTS OF GAME
+		//ANALYZING AND OUTPUTTING RESULTS OF GAME
 		int winner = G->getWinner(C, currPlayer);
-                if (winner == -1) { //Draw
+		if (winner == -1)	//Draw Condition
+		{
 			whiteScore += .5;
 			blackScore += .5;
-			//REQUIRED: The below game message
 			cout << "Stalemate!" << endl;
-                } else if (winner == 0) {
+		} 
+		else if (winner == 0) 
+		{
 			whiteScore += 1;
-                        //REQUIRED: The below game messages
-			if (G->isResigned()) {
-                                cout << "White wins!" << endl;
-                        } else {
-                                cout << "Checkmate! White wins!" << endl;
-                        }
-		} else {
+			if (G->isResigned()) 
+				cout << "White wins!" << endl;
+			else  
+				cout << "Checkmate! White wins!" << endl;
+		} 
+		else 
+		{
 			blackScore += 1;
-			//REQUIRED: The below game messages
-			if (G->isResigned()) {
+			if (G->isResigned())
 				cout << "Black wins!" << endl;
-			} else {
+			else
 				cout << "Checkmate! Black wins!" << endl;
-			} 
 		}
 		delete W;
 		delete B;
 	}
-
-	//REQUIRED: The end of program messages when ctrl-D is pressed
     cout << endl;
 	cout << "Final Score:" << endl;
 	cout << "White: " << whiteScore << endl;
