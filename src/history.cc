@@ -45,6 +45,7 @@ bool History::ckMoved(char kingP, Coord RP)
 	}
 	return castling;
 }
+
 bool History::canEnPassant(Coord stc, Coord endc, char Que) 
 {
 	string lastMove = *hist.rbegin();

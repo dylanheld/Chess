@@ -23,13 +23,15 @@ Coord Coord::addCoord(int x, int y)
   return Coord(this->x + x, this->y + y);
 }
 
-bool Coord::inBounds() {
+bool Coord::inBounds() 
+{
   if ((getX() >= 0) && (getX() <= 7) && (getY() >= 0) && (getY() <= 7)) 
 	  return true;
   return false;
 }
 
-istream &Coord::operator>>(istream &in) {
+istream &Coord::operator>>(istream &in) 
+{
    string c;
    in >> c;
    stringstream s(c);

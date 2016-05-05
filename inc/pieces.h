@@ -1,14 +1,15 @@
 #ifndef PIECES_H
 #define PIECES_H
+
 #include <iostream>
 #include <vector>
 #include <map>
 #include "coord.h"
-#include "gameboard.h" //Instead of forward declair, becuase the subclasses need it
+#include "gameboard.h"
 
 class Pieces;
-
-class Pieces {
+class Pieces 
+{
 protected:
 	char tp;
 	GameBoard *gb;
@@ -17,8 +18,8 @@ public:
 	Pieces(char tp, GameBoard *gb, int colour);
 	~Pieces();
 	int getColour();
-        char getPiece();
+	char getPiece();
 	virtual std::vector<Coord> potentialMoves(Coord) = 0;
 };
 
-#endif
+#endif	//PIECES_H

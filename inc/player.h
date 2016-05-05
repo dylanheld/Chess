@@ -1,9 +1,11 @@
 #ifndef PLAYER_H
 #define PLAYER_H
+
 #include "coord.h"
 #include "gameboard.h"
 
-class Player {
+class Player 
+{
   protected:
   GameBoard *gb;
   int colour;
@@ -14,4 +16,4 @@ class Player {
   virtual void makeMove()=0;
 };
 
-#endif
+#endif	//PLAYER_H

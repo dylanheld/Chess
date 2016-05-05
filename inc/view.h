@@ -1,20 +1,21 @@
 #ifndef DISPLAY_H
 #define DISPLAY_H
+
 #include <iostream>
 #include <sstream>
 
-class View {
+class View 
+{
 protected:
-    const int gridSize;
+	const int gridSize;
 public:
     View(int n);
-    
- /*
-  * The Controller calls notify to update the (row,column) location to be ch
-  */
- virtual void notify(int row, int column, char ch) = 0;
- virtual void print(std::ostream &out) const = 0;  
- virtual ~View() = 0;
+	/*
+	* The Controller calls notify to update the (row,column) location to be ch
+	*/
+	virtual void notify(int row, int column, char ch) = 0;
+	virtual void print(std::ostream &out) const = 0;
+	virtual ~View() = 0;
 };
 
-#endif
+#endif	//DISPLAY_H

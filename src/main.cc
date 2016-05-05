@@ -124,8 +124,6 @@ int main(int argc, char *argv[]) {
 		if (C == NULL)  
 			break; //The above loop then exited because of a ctrl-D || Will need to dealocate memory here!
 				
-
-
 		//PLAYING THE GAME 
 //		G.setPlayingGame(true);
 		while (!G->gameOver(C)) 

@@ -1,11 +1,14 @@
 #ifndef COORD_H
 #define COORD_H
+
 #include <iostream>
-class Coord {
+
+class Coord 
+{
   int x;
   int y;
 
-  public:
+public:
   Coord(int x = 0, int y = 0);
   int getX();
   int getY();
@@ -14,4 +17,4 @@ class Coord {
   std::istream &operator>>(std::istream &in); 
 };
 
-#endif
+#endif //COORD_H

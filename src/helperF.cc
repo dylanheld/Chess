@@ -24,7 +24,6 @@ bool checkValidPosition(string inputCommand)
 	return isValidPosition;
 }
 
-
 bool checkBoard(GameBoard *G) 
 {
 	int numWK = 0;

@@ -4,11 +4,11 @@
 #include "player.h"
 #include "gameboard.h"
 
-class Human : public Player {
-  public:
-  Human(GameBoard*, int);
-  void makeMove();
+class Human : public Player 
+{
+public:
+	Human(GameBoard*, int);
+	void makeMove();
 };
 
-
-#endif
+#endif //HUMAN_H
