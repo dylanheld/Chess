@@ -1,5 +1,6 @@
 # Summary
-ASCII-based chess game completed with partner, Andrew Clappison, in early December 2015
+ASCII-based chess game completed with partner, Andrew Clappison, in early December 2015.
+Note: Due to issues, graphics were not included; however the depreciated files can be found in the graphics folder 
 
 # Environment
 Platform: Windows (8.1 tested)
