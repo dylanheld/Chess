@@ -43,7 +43,7 @@ void AI1::makeMove()
 						}
 					}
 				}
-		// Do Random move
+		// Perform Random move
 		srand (time(NULL));
 		map<Coord*, vector<Coord> >::iterator it = allMoves.begin();
 		std::advance(it, rand() % allMoves.size());
