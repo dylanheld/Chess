@@ -17,12 +17,12 @@ int main(int argc, char *argv[]) {
     double blackScore = 0;
 	ifstream defaultBoard;
 	bool firstLoop = true;
+	string DBOARD("../data/DBoard.txt");
 
     //The program stays in the below while loop playing multiple games until
     //it terminates when ctrl-D is pressed
 	while(true)
 	{
-		//Xwindow *w = &e;
 		GameBoard *G = new GameBoard();
 		Player *W = NULL;
 		Player *B = NULL;
@@ -37,7 +37,7 @@ int main(int argc, char *argv[]) {
 			if (argc == 2)
 				defaultBoard.open(argv[1]);
 			else 
-				defaultBoard.open("DBoard.txt");
+				defaultBoard.open(DBOARD);
 			startingPlayer = G->readFile(defaultBoard);
 			currPlayer = startingPlayer;
 			defaultBoard.close();
@@ -45,7 +45,12 @@ int main(int argc, char *argv[]) {
 		} 
 		else
 		{
-			defaultBoard.open("DBoard.txt");
+			defaultBoard.open(DBOARD);
+			if (!defaultBoard.is_open())
+			{
+				cerr << "Failed to load default board" << endl;
+				return 1;
+			}
 			G->readFile(defaultBoard);
 			startingPlayer = 1 - startingPlayer;
 			currPlayer = startingPlayer;
@@ -179,6 +184,9 @@ int main(int argc, char *argv[]) {
 		}
 		delete W;
 		delete B;
+		cout << endl << "------------------" << endl << 
+			"     NEW GAME     " << endl 
+			<< "------------------" << endl << endl;
 	}
     cout << endl;
 	cout << "Final Score:" << endl;
