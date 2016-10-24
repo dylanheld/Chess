@@ -17,7 +17,7 @@ int main(int argc, char *argv[]) {
     double blackScore = 0;
 	ifstream defaultBoard;
 	bool firstLoop = true;
-	string DBOARD("../data/DBoard.txt");
+	string DBOARD("../../data/DBoard.txt");
 
     //The program stays in the below while loop playing multiple games until
     //it terminates when ctrl-D is pressed
@@ -38,6 +38,13 @@ int main(int argc, char *argv[]) {
 				defaultBoard.open(argv[1]);
 			else 
 				defaultBoard.open(DBOARD);
+
+			if (!defaultBoard.is_open())
+			{
+				cerr << "Failed to load board" << endl;
+				return 1;
+			}
+
 			startingPlayer = G->readFile(defaultBoard);
 			currPlayer = startingPlayer;
 			defaultBoard.close();
@@ -137,19 +144,19 @@ int main(int argc, char *argv[]) {
 			{
 				if(W->wouldPutInCheck(Coord(0,0),Coord(0,0)))  
 					cout << "White is in check." << endl; 
-				W->makeMove();
 #ifdef DEBUG
 				cout << "White: Please take your turn." << endl;
 #endif
+				W->makeMove();
 			} 
 			else 
 			{
 				if(B->wouldPutInCheck(Coord(0,0),Coord(0,0)))  
 					cout << "Black is in check." << endl; 
-				B->makeMove();
 #ifdef DEBUG
 				cout << "Black: Please take your turn." << endl;
 #endif
+				B->makeMove();
 			}
 			currPlayer = 1 - currPlayer;
 			if(currPlayer == 0)  
