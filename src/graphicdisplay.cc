@@ -10,11 +10,11 @@ GraphicDisplay::~GraphicDisplay() {
 }
 
 GraphicDisplay::GraphicDisplay(Xwindow *q): w(q) { 
-//	unsigned long p = 9394209;
-  //      w->fillRectangle(0, 0, 584, 584, p);
+	unsigned long p = 9394209;
+    w->fillRectangle(0, 0, 584, 584, p);
 	int dimension = 63;
 //      void fillRectangle(int x, int y, int width, int height, int colour=Black);
-        unsigned long c = 16436379;
+    unsigned long c = 16436379;
         //string index = "87654321";
         /*char index = '8';
         for(int x = 18; x < 19; ++x) {

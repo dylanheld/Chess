@@ -14,7 +14,7 @@
 #include "player.h"
 using namespace std;
 
-GameBoard::GameBoard() 
+GameBoard::GameBoard(Xwindow *w) 
 {
 	for(int i = 0; i < 8; ++i) 
 		for(int j = 0; j < 8; ++j) 
@@ -22,7 +22,7 @@ GameBoard::GameBoard()
 	inCheck = false;
 	resign = false;
 	readingFile = false;
-	td = new TextDisplay(8, this);
+	td = new TextDisplay(8, this, w);
 	moveHistory = new History();
 }
 

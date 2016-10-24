@@ -1,6 +1,6 @@
 #include "textdisplay.h"
 #include "gameboard.h"
-//#include "graphicdisplay.h"
+#include "graphicdisplay.h"
 using namespace std;
 
 /*********** notify ************
@@ -10,6 +10,7 @@ Returns: Void
 void TextDisplay::notify(int row, int column, char ch) 
 {
 	theDisplay[row][column] = ch;
+	gd->notifyG(row, column, ch);
 }
 
 /*********** print **************
@@ -55,7 +56,7 @@ TextDisplay::~TextDisplay()
 }
 
 // TextDisplay constructor
-TextDisplay::TextDisplay(int n, GameBoard *G): View(n), gb(G) 
+TextDisplay::TextDisplay(int n, GameBoard *G, Xwindow *q): View(n), gb(G) 
 {
 	theDisplay = new char*[n];	// Dynamically allocate theDisplay
 	for(int i = 0; i < n; ++i) 
@@ -64,4 +65,5 @@ TextDisplay::TextDisplay(int n, GameBoard *G): View(n), gb(G)
 		for(int j = 0; j < n; j++)
 			theDisplay[i][j] = '-';		// set initialize state of grid cells to be 0
 	}
+	gd = new GraphicDisplay(q);
 }
