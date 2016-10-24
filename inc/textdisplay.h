@@ -6,16 +6,13 @@
 #include "view.h"
 
 class GameBoard;
-class Xwindow;
 class GraphicDisplay;
-
 class TextDisplay : public View 
 {
 	char **theDisplay;          //the n x n display 
 	GameBoard *gb;
-	GraphicDisplay *gd;
 public:
-	TextDisplay(int n, GameBoard*, Xwindow*);
+	TextDisplay(int n, GameBoard*);
 	~TextDisplay();
 	/*
 	* The Controller calls notify to update the (row,column) location to be ch
