@@ -9,6 +9,8 @@
 
 class Pieces;
 class Player;
+class Xwindow;
+
 class GameBoard 
 {
 	std::map <int, std::map<int, Pieces*> > theBoard;
@@ -19,7 +21,7 @@ class GameBoard
 	bool resign;
 	
 public:
-	GameBoard();
+	GameBoard(Xwindow *);
 	~GameBoard();
 	void setPiece(int, int, char);
 	void removePiece(int, int, bool ace = false);

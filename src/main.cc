@@ -8,6 +8,7 @@
 #include "ai2.h"
 #include "ai3.h"
 #include "ai4.h"
+#include "window.h"
 using namespace std;
 
 int main(int argc, char *argv[]) {
@@ -18,12 +19,14 @@ int main(int argc, char *argv[]) {
 	ifstream defaultBoard;
 	bool firstLoop = true;
 	string DBOARD("../../data/DBoard.txt");
+	Xwindow e;
 
     //The program stays in the below while loop playing multiple games until
     //it terminates when ctrl-D is pressed
 	while(true)
 	{
-		GameBoard *G = new GameBoard();
+		Xwindow *w = &e;
+		GameBoard *G = new GameBoard(w);
 		Player *W = NULL;
 		Player *B = NULL;
 		Player *C = NULL; //Pointer to the current player
