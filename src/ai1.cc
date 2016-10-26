@@ -43,40 +43,44 @@ void AI1::makeMove()
 						}
 					}
 				}
-		// Perform Random move
-		srand (time(NULL));
-		map<Coord*, vector<Coord> >::iterator it = allMoves.begin();
-		std::advance(it, rand() % allMoves.size());
-		Coord* randKey = it->first;
-#ifdef DEBUG
-		cout << "Random Coord is: " << randKey->getX() << " " << randKey->getY() << endl;
-#endif
-		vector<Coord>::iterator et = allMoves[randKey].begin();
-		std::advance(et, rand() % allMoves[randKey].size());
-		Coord randVal = *et;
-#ifdef DEBUG
-		cout << "Random move is: " << randVal.getX() << " " << randVal.getY() << endl;	
-#endif
-		string promotedPiece;
-		bool canPP = false;
-		if (colour == 0 && randVal.getY() == 7 && gb->getPiece(*randKey)->getPiece() == 'P') 
-		{
-			string possiblePromotions[4] = {"R", "N", "B", "Q"};
-			promotedPiece = possiblePromotions[rand() % 4];
-			canPP = true;
-		}
-		else if(!(canPP) && colour == 1 && randVal.getY() == 0 && gb->getPiece(*randKey)->getPiece() == 'p') 
-		{
-			string possiblePromotions[4] = {"r", "n", "b", "q"};
-			promotedPiece = possiblePromotions[rand() % 4];
-			canPP = true;
-		}
-		gb->commitMove(*randKey, randVal);
-		if(canPP)
-			gb->promotePawn(randVal, promotedPiece);
-		for(map<Coord*, vector<Coord> >::iterator it = allMoves.begin(); it != allMoves.end(); ++it)
-			delete it->first;
-		break;
+			// Perform Random move
+			srand (time(NULL));
+			map<Coord*, vector<Coord> >::iterator it = allMoves.begin();
+			std::advance(it, rand() % allMoves.size());
+			Coord* randKey = it->first;
+	#ifdef DEBUG
+			cout << "Random Coord is: " << randKey->getX() << " " << randKey->getY() << endl;
+	#endif
+			vector<Coord>::iterator et = allMoves[randKey].begin();
+			std::advance(et, rand() % allMoves[randKey].size());
+			Coord randVal = *et;
+	#ifdef DEBUG
+			cout << "Random move is: " << randVal.getX() << " " << randVal.getY() << endl;	
+	#endif
+			string promotedPiece;
+			bool canPP = false;
+			if (colour == 0 && randVal.getY() == 7 && gb->getPiece(*randKey)->getPiece() == 'P') 
+			{
+				string possiblePromotions[4] = {"R", "N", "B", "Q"};
+				promotedPiece = possiblePromotions[rand() % 4];
+				canPP = true;
+			}
+			else if(!(canPP) && colour == 1 && randVal.getY() == 0 && gb->getPiece(*randKey)->getPiece() == 'p') 
+			{
+				string possiblePromotions[4] = {"r", "n", "b", "q"};
+				promotedPiece = possiblePromotions[rand() % 4];
+				canPP = true;
+			}
+			gb->commitMove(*randKey, randVal);
+
+			// Check for Pawn Promotion
+			if(canPP)
+				gb->promotePawn(randVal, promotedPiece);
+
+			// Free Coords
+			for(map<Coord*, vector<Coord> >::iterator it = allMoves.begin(); it != allMoves.end(); ++it)
+				delete it->first;
+			break;
 		}
 		else if (canMove == "resign") 
 		{ 
