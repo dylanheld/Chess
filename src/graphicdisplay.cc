@@ -34,42 +34,41 @@ GraphicDisplay::GraphicDisplay(Xwindow *q): w(q) {
                         x = x + 63;
                 }
         } */
-	for(int x = 40; x < 540;) {
-                for(int y = 40; y < 540;) {
-                        w->fillRectangle(x, y, dimension, dimension, c);
-                        //unsigned long blueee = 2003199;
-                        //w.fillRectangle(x, y, dimension, dimension, blueee);
-                        if (c == 16436379) { c = 13404743; }
-                        else { c = 16436379; }
-                        y = y + 63;
-                }
-                if (c == 16436379) { c = 13404743; }
-                else { c = 16436379; }
-                x = x + 63;
-        }              
+	for(int x = 40; x < 540;) 
+    {
+        for(int y = 40; y < 540;) 
+        {
+            w->fillRectangle(x, y, dimension, dimension, c);
+            //unsigned long blueee = 2003199;
+            //w.fillRectangle(x, y, dimension, dimension, blueee);
+            if (c == 16436379)
+                c = 13404743; 
+            else
+                c = 16436379; 
+            y = y + 63;
+        }
+        if (c == 16436379)
+            c = 13404743; 
+        else 
+            c = 16436379;
+        x = x + 63;
+    }              
 }
 
 void GraphicDisplay::notifyG(int row, int column, char ch) {
 	unsigned long c = 16436379;
-	if((((row + 2) % 2 == 0) && ((column + 2) % 2 == 0)) || (((row + 1) % 2 == 0) && ((column + 1) % 2 == 0))) {
+	if((((row + 2) % 2 == 0) && ((column + 2) % 2 == 0)) || (((row + 1) % 2 == 0) && ((column + 1) % 2 == 0)))
 		c = 13404743;
-	}
-	if (ch == '_') {
+	if (ch == '_')
 		w->fillRectangle(row*63 + 40, (7 - column)*63 + 40, 63, 63, c);
-	}
-	else {
+	else 
+    {
 		int c = w->Black;
-		if(isupper(ch)) {
+		if(isupper(ch))
 			c = w->White;
-		}
 		//cout << "row/col is: " << row << " " << column << endl;
 		//int x = 7 - row;
 		string inputPiece = string() + ch;
-		//cout << "outing: " << column << " " << x << endl;
 		w->drawBigString(row*63 + 59, (7 - column)*63 + 85, inputPiece, c);
 	}
 }
-
-
-
-//GraphicDisplay::resetBoard

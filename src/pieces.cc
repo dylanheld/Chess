@@ -12,6 +12,7 @@ Pieces::Pieces(char tp, GameBoard *gb, int colour): tp(tp), gb(gb), colour(colou
 
 Pieces::~Pieces() {}
 
+// Return colour of piece
 int Pieces::getColour() 
 {
 	return colour;

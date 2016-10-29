@@ -62,6 +62,7 @@ bool checkBoard(GameBoard *G)
 	}
 }
 
+// Manually Setup gameboard
 void setupINIT(GameBoard *G, int *curr) 
 {
 	string inputline[3];

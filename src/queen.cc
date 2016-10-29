@@ -15,26 +15,28 @@ vector<Coord> Queen::potentialMoves(Coord stc)
 		for (int y = -1; y <= 1; y++) 
 			if((x != 0) || (y != 0)) 
 			{
-				//Going across all 8 possible directions
-				int mag = 1;
+				//Check all 8 possible orientations of movement
+				int mag = 1;	// Magnitude of movement (e.g. number of tiles stepped)
 				bool continueForward = true;
-				while(continueForward) 
+				while(true) 
 				{
 					Coord c = Coord(stc.getX() + x*mag, stc.getY() + y*mag);
 					if (!(c.inBounds()))
-						continueForward = false;
+						break;
 					else if(gb->getPiece(c) == NULL) 
 					{
+						// Move possible and can move further
 						v.push_back(c);
 						mag++;
 					} 
 					else if(gb->getPiece(c)->getColour() != colour) 
 					{
+						// Move possible, can not move further
 						v.push_back(c);
-						continueForward = false;
+						break;
 					} 
 					else
-						continueForward = false;
+						break;
 				}
 			}
 	return v;
